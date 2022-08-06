@@ -15,7 +15,7 @@ html {
     flex-grow: 1;
     flex-basis: auto;
     min-width: 600px;
-    padding: 4em 2em 2em;
+    padding: 2em 2em 2em;
     box-sizing: border-box;
     display: flex;
     background: #C5965F;
@@ -89,13 +89,18 @@ html {
     border-radius: 10px;
     border: 2px solid #40112D;
 }
-
 .adicionar label {
     display: block;
 }
 
 .cadastrar {
     background-color: #40112D;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.limpar {
+    background-color: #af342c;
     color: #FFFFFF;
     cursor: pointer;
 }

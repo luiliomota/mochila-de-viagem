@@ -1,4 +1,5 @@
 const form = document.getElementById("novoItem");
+const limp = document.getElementById("limpar");
 const lista = document.getElementById("lista");
 const itens = JSON.parse(localStorage.getItem("itens")) || [];
 
@@ -29,6 +30,10 @@ form.addEventListener("submit", (evento) => {
     quantidade.value = "";
 })
 
+limp.addEventListener("click", function () {
+    limparLista();
+})
+
 function criaElemento(item) {
     const novoItem = document.createElement("li");
     const numeroItem = document.createElement("strong");
@@ -57,5 +62,11 @@ function botaoDeleta(id){
 function deletaElemento(tag, id){
     tag.remove();
     itens.splice(itens.findIndex(elemento => elemento.id === id),1);
+    localStorage.setItem("itens", JSON.stringify(itens));
+}
+
+function limparLista(){
+    lista.remove();
+    itens.splice(itens);
     localStorage.setItem("itens", JSON.stringify(itens));
 }
