@@ -2,6 +2,7 @@ const form = document.getElementById("novoItem");
 const limp = document.getElementById("limpar");
 const lista = document.getElementById("lista");
 const itens = JSON.parse(localStorage.getItem("itens")) || [];
+const formJson = document.getElementById("novoJson");
 
 itens.forEach( (elemento) => {
     criaElemento(elemento);
@@ -32,6 +33,11 @@ form.addEventListener("submit", (evento) => {
 
 limp.addEventListener("click", function () {
     limparLista();
+})
+
+formJson.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+    inserirJson(evento.target.elements['codigo'].value);
 })
 
 function criaElemento(item) {
@@ -69,4 +75,12 @@ function limparLista(){
     lista.remove();
     itens.splice(itens);
     localStorage.setItem("itens", JSON.stringify(itens));
+}
+
+function inserirJson(json){
+    console.log(json);
+    localStorage.setItem("itens", json);
+    JSON.parse(localStorage.getItem("itens")).forEach( (elemento) => {
+        criaElemento(elemento);
+    })
 }
